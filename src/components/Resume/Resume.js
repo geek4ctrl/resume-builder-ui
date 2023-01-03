@@ -51,23 +51,23 @@ class Resume extends Component {
         switch (step) {
             case 1:
                 return (
-                    <Personal />
+                    <Personal nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
                 )
             case 2:
                 return (
-                    <Education />
+                    <Education prevStep={this.prevStep} nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
                 )
             case 3:
                 return (
-                    <Projects />
+                    <Projects prevStep={this.prevStep} nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
                 )
             case 4:
                 return (
-                    <Experience />
+                    <Experience prevStep={this.prevStep} nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
                 )
             case 5:
                 return (
-                    <Extra />
+                    <Extra prevStep={this.prevStep} handleChange={this.handleChange} values={values} />
                 )
             default:
 
