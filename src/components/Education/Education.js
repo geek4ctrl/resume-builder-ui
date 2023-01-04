@@ -1,5 +1,9 @@
 import React from 'react';
 
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 const Education = ({ prevStep, nextStep, handleChange, values }) => {
 
     const Continue = e => {
@@ -15,8 +19,93 @@ const Education = ({ prevStep, nextStep, handleChange, values }) => {
     return (
         <div>
             <h1>Education Details</h1>
+            <hr />
 
-            <label> College/University
+            <Box
+                component="form"
+                sx={{
+                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+
+                <div>
+                    <TextField
+                        id="outlined-error"
+                        label="College"
+                        value={values.college}
+                        onChange={handleChange('college')}
+                    />
+                    <TextField
+                        id="outlined-error-helper-text"
+                        label="From"
+                        value={values.collegeDateFrom}
+                        onChange={handleChange('collegeDateFrom')}
+                    />
+                    <TextField
+                        id="outlined-error-helper-text"
+                        label="To"
+                        value={values.collegeDateTo}
+                        onChange={handleChange('collegeDateTo')}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        id="outlined-error"
+                        label="Qualification"
+                        value={values.collegeQualification}
+                        onChange={handleChange('collegeQualification')}
+                    />
+                    <TextField
+                        id="outlined-error-helper-text"
+                        label="Description"
+                        value={values.collegeDescription}
+                        onChange={handleChange('collegeDescription')}
+                    />
+                </div>
+
+                <hr />
+
+
+                <div>
+                    <TextField
+                        id="outlined-error"
+                        label="School"
+                        value={values.college}
+                        onChange={handleChange('college')}
+                    />
+                    <TextField
+                        id="outlined-error-helper-text"
+                        label="From"
+                        value={values.schoolDateFrom}
+                        onChange={handleChange('schoolDateFrom')}
+                    />
+                    <TextField
+                        id="outlined-error-helper-text"
+                        label="To"
+                        value={values.schoolDateTo}
+                        onChange={handleChange('schoolDateTo')}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        id="outlined-error"
+                        label="Qualification"
+                        value={values.schoolQualification}
+                        onChange={handleChange('schoolQualification')}
+                    />
+                    <TextField
+                        id="outlined-error-helper-text"
+                        label="Description"
+                        value={values.schoolDescription}
+                        onChange={handleChange('schoolDescription')}
+                    />
+                </div>
+
+            </Box>
+
+            {/* <label> College/University
                 <input type="text" placeholder="College/University" value={values.college} onChange={handleChange('college')} />
             </label>
             <label> Qualification
@@ -30,9 +119,9 @@ const Education = ({ prevStep, nextStep, handleChange, values }) => {
             </label>
             <label> Description
                 <input type="text" placeholder="collegeDescription" value={values.collegeDescription} onChange={handleChange('collegeDescription')} />
-            </label>
+            </label> */}
 
-            <label> School
+            {/* <label> School
                 <input type="text" placeholder="School" value={values.college} onChange={handleChange('school')} />
             </label>
             <label> Qualification
@@ -46,12 +135,15 @@ const Education = ({ prevStep, nextStep, handleChange, values }) => {
             </label>
             <label> Description
                 <input type="text" placeholder="schoolDescription" value={values.schoolDescription} onChange={handleChange('schoolDescription')} />
-            </label>
+            </label> */}
 
-            <button onClick={Previous}>BACK</button>
-            <button onClick={Continue}>NEXT</button>
+            {/* <button onClick={Previous}>BACK</button>
+            <button onClick={Continue}>NEXT</button> */}
+
+            <Button variant="outlined" onClick={Previous}>BACK</Button>
+            <Button variant="contained" onClick={Continue}>NEXT</Button>
         </div>
     )
 }
 
-export default Education
+export default Education;
