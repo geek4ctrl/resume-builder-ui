@@ -13,11 +13,55 @@ class Resume extends Component {
         firstname: '',
         lastname: '',
         email: '',
-        phone: '',
+        phonenumber: '',
+        website: '',
         github: '',
         linkedin: '',
+        twitter: '',
         facebook: '',
-        instagram: ''
+        instagram: '',
+
+        college: '',
+        collegeQualification: '',
+        collegeDateFrom: '',
+        collegeDateTo: '',
+        collegeDescription: '',
+        school: '',
+        schoolQualification: '',
+        schoolDateFrom: '',
+        schoolDateTo: '',
+        schoolDescription: '',
+
+        projectTitle1: '',
+        projectLink1: '',
+        projectDescription1: '',
+        projectTitle2: '',
+        projectLink2: '',
+        projectDescription2: '',
+        projectTitle3: '',
+        projectLink3: '',
+        projectDescription3: '',
+
+        experienceOrganisation1: '',
+        experiencePosition1: '',
+        experienceDuration1: '',
+        experienceDescription1: '',
+        experienceOrganisation2: '',
+        experiencePosition2: '',
+        experienceDuration2: '',
+        experienceDescription2: '',
+
+        skill1: '',
+        skill2: '',
+        skill3: '',
+        skill4: '',
+        skill5: '',
+        interest1: '',
+        interest2: '',
+        interest3: '',
+        interest4: '',
+        interest5: ''
+
     };
 
     constructor(props) {
