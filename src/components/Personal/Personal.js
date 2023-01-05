@@ -150,7 +150,7 @@ const Personal = ({ prevStep, nextStep, handleChange, values }) => {
             {/* <button onClick={Previous}>BACK</button>
             <button onClick={Continue}>NEXT</button> */}
 
-            <Button variant="outlined" onClick={Previous}>BACK</Button>
+            {/* <Button variant="outlined" onClick={Previous}>BACK</Button> */}
             <Button variant="contained" onClick={Continue}>NEXT</Button>
 
         </div>

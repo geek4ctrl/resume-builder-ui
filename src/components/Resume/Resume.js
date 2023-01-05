@@ -56,11 +56,13 @@ class Resume extends Component {
         skill3: '',
         skill4: '',
         skill5: '',
+        skill6: '',
         interest1: '',
         interest2: '',
         interest3: '',
         interest4: '',
-        interest5: ''
+        interest5: '',
+        interest6: ''
 
     };
 

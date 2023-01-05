@@ -137,9 +137,9 @@ const Extra = ({ prevStep, nextStep, handleChange, values }) => {
             <button onClick={Continue}>NEXT</button> */}
 
             <Button variant="outlined" onClick={Previous}>BACK</Button>
-            <Button variant="contained" onClick={Continue}>NEXT</Button>
+            <Button variant="contained" onClick={Continue}>SUBMIT</Button>
         </div>
     )
 }
 
-export default Extra
+export default Extra;
