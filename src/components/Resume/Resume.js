@@ -105,11 +105,22 @@ class Resume extends Component {
                 axios
                     .get('fetch-pdf', { responseType: 'arraybuffer' })
                     .then(res => {
-                        const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
-                        // saveAs(pdfBlob, `${this.state.firstname}'sResume.pdf`);
+                        // const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+                        // // saveAs(pdfBlob, `${this.state.firstname}'sResume.pdf`);
 
-                        const fileURL = URL.createObjectURL(pdfBlob);
-                        window.open(fileURL);
+                        // const fileURL = URL.createObjectURL(pdfBlob);
+                        // window.open(fileURL);
+
+                        console.log('Show me the response: ', res.data);
+
+                        let blob = new Blob([res.data], { type: 'application/pdf' });
+
+                        console.log('Show me the blob: ', blob);
+
+                        let link = document.createElement('a')
+                        link.href = window.URL.createObjectURL(blob)
+                        link.download = 'Report.pdf'
+                        link.click();
                     })
                     .catch(err => {
                         console.log(err);
