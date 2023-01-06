@@ -5,6 +5,9 @@ import Education from '../Education/Education';
 import Projects from '../Projects/Projects';
 import Experience from '../Experience/Experience';
 import Extra from '../Extra/Extra';
+import axios from "axios";
+
+import Button from '@mui/material/Button';
 
 class Resume extends Component {
 
@@ -88,6 +91,32 @@ class Resume extends Component {
         this.setState({ [input]: e.target.value });
     }
 
+    handleSubmit = () => {
+        this.createAndDownloadPDF();
+    }
+
+    createAndDownloadPDF = () => {
+        axios
+            .create({
+                baseURL: "http://localhost:3000"
+            })
+            .post('/create-pdf', this.state)
+            .then(() => {
+                axios
+                    .get('fetch-pdf', { responseType: 'arraybuffer' })
+                    .then(res => {
+                        const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
+                        // saveAs(pdfBlob, `${this.state.firstname}'sResume.pdf`);
+
+                        const fileURL = URL.createObjectURL(pdfBlob);
+                        window.open(fileURL);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            });
+    };
+
     render() {
 
         const { step } = this.state;
@@ -97,7 +126,10 @@ class Resume extends Component {
         switch (step) {
             case 1:
                 return (
-                    <Personal nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
+                    <div>
+                        <Personal nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
+                        <Button variant="contained" onClick={this.createAndDownloadPDF}>SUBMIT</Button>
+                    </div>
                 )
             case 2:
                 return (
@@ -118,6 +150,7 @@ class Resume extends Component {
             default:
 
         }
+
     }
 
 }
