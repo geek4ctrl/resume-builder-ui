@@ -1,14 +1,16 @@
 import './Resume.css';
 import React, { Component } from 'react';
+import axios from "axios";
+import { saveAs } from 'file-saver';
+
 import Personal from '../Personal/Personal';
 import Education from '../Education/Education';
 import Projects from '../Projects/Projects';
 import Experience from '../Experience/Experience';
 import Extra from '../Extra/Extra';
-import axios from "axios";
 
 import Button from '@mui/material/Button';
-import { saveAs } from 'file-saver';
+
 
 class Resume extends Component {
 
@@ -118,8 +120,18 @@ class Resume extends Component {
     render() {
 
         const { step } = this.state;
-        const { firstname, lastname, email, phone, github, linkedin, facebook, instagram } = this.state;
-        const values = { firstname, lastname, email, phone, github, linkedin, facebook, instagram };
+
+        const { firstname, lastname, email, phonenumber, website, github, linkedin, twitter, facebook, instagram, college, collegeQualification, collegeDateFrom, collegeDateTo, collegeDescription, school,
+            schoolQualification, schoolDateFrom, schoolDateTo, schoolDescription, projectTitle1, projectLink1, projectDescription1, projectTitle2, projectLink2, projectDescription2, projectTitle3, projectLink3, projectDescription3,
+            experienceOrganisation1, experiencePosition1, experienceDuration1, experienceDescription1, experienceOrganisation2, experiencePosition2, experienceDuration2, experienceDescription2,
+            skill1, skill2, skill3, skill4, skill5, skill6, interest1, interest2, interest3, interest4, interest5, interest6 } = this.state;
+
+        const values = {
+            firstname, lastname, email, phonenumber, website, github, linkedin, twitter, facebook, instagram, college, collegeQualification, collegeDateFrom, collegeDateTo, collegeDescription, school,
+            schoolQualification, schoolDateFrom, schoolDateTo, schoolDescription, projectTitle1, projectLink1, projectDescription1, projectTitle2, projectLink2, projectDescription2, projectTitle3, projectLink3, projectDescription3,
+            experienceOrganisation1, experiencePosition1, experienceDuration1, experienceDescription1, experienceOrganisation2, experiencePosition2, experienceDuration2, experienceDescription2,
+            skill1, skill2, skill3, skill4, skill5, skill6, interest1, interest2, interest3, interest4, interest5, interest6
+        };
 
         switch (step) {
             case 1:
@@ -143,7 +155,7 @@ class Resume extends Component {
                 )
             case 5:
                 return (
-                    <Extra prevStep={this.prevStep} handleChange={this.handleChange} values={values} />
+                    <Extra prevStep={this.prevStep} handleChange={this.handleChange} values={values} handleSubmit={this.handleSubmit} />
                 )
             default:
 
