@@ -8,6 +8,7 @@ import Extra from '../Extra/Extra';
 import axios from "axios";
 
 import Button from '@mui/material/Button';
+import { saveAs } from 'file-saver';
 
 class Resume extends Component {
 
@@ -98,18 +99,15 @@ class Resume extends Component {
     createAndDownloadPDF = () => {
         axios
             .create({
-                baseURL: "http://localhost:3000"
+                baseURL: "http://localhost:3000/"
             })
             .post('/create-pdf', this.state)
             .then(() => {
                 axios
-                    .get('fetch-pdf', { responseType: 'arraybuffer' })
+                    .get('/fetch-pdf', { responseType: 'arraybuffer' })
                     .then(res => {
-                        const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
-                        // saveAs(pdfBlob, `${this.state.firstname}'sResume.pdf`);
-
-                        const fileURL = URL.createObjectURL(pdfBlob);
-                        window.open(fileURL);
+                        let blob = new Blob([res.data], { type: 'application/pdf' });
+                        saveAs(blob, `${this.state.firstname}'s Resume.pdf`);
                     })
                     .catch(err => {
                         console.log(err);
